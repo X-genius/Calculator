@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang = "en">
+     <head>
+          <title>Calc.com</title>
+    </head>
+    
+    <style>
+           .view
+        {
+          width : 212px;
+        font-size: 25px;
+            height: 50px;
+            margin: 0;
+            box-shadow: 1px 1px #242323;
+            border: none;
+        }
+        
+        .but
+        {
+            font-size: 30px;
+            width: 50px;
+            height: 50px;
+            text-align: center;
+            color: white;
+            background: #242323;
+            border:none;
+        }
+        
+        .butt
+        {
+            font-size: 30px;
+            width: 50px;
+            height: 105px;
+            text-align: center;
+            color: white;
+            background: #242323;
+            border: none;
+            
+        }
+        
+        h1{
+            text-align: center;
+            font-size: 40px;
+            text-transform: uppercase;
+        }
+        
+        body{
+            background: linear-gradient(to right,#d93b53,#4343e0);
+        }
+        
+        .cont
+        {
+            margin-left: 43%;
+            margin-top: 10%;
+        }
+        
+        .b
+        {
+            font-size: 30px;
+            width: 105px;
+            height: 50px;
+            text-align: center;
+            color: white;
+            background: #242323;
+            border: none;
+        }
+    </style>
+    
+    <body>
+          <h1>Calculator</h1>
+          <div class ="cont">
+          <table>
+              <tr>
+                  <td colspan = "4">
+                    <form>
+                         <input type="text" class = "view" id = "result">
+                   </form>
+                  </td>
+              </tr>
+              <tr>
+                  <td><input type = "button" value = "C" class = "but" onclick="clr()"></td>
+                  <td><input type = "button" value = "/" class = "but" onclick="disp('/')"></td>
+                  <td><input type = "button" value = "*" class = "but" onclick="disp('*')"></td>
+                  <td><input type = "button" value = "X" class = "but" onclick="back()"></td>                  
+              </tr>
+              
+              <tr>
+                  <td><input type = "button" value = "7" class = "but" onclick="disp('7')"></td>
+                  <td><input type = "button" value = "8" class = "but" onclick="disp('8')"></td>
+                  <td><input type = "button" value = "9" class = "but" onclick="disp('9')"></td>
+                  <td><input type = "button" value = "-" class = "but" onclick="disp('-')"></td>                  
+              </tr>
+              
+              <tr>
+                  <td><input type = "button" value = "4" class = "but" onclick="disp('4')"></td>
+                  <td><input type = "button" value = "5" class = "but" onclick="disp('5')"></td>
+                  <td><input type = "button" value = "6" class = "but" onclick="disp('6')"></td>
+                  <td><input type = "button" value = "+" class = "but" onclick="disp('+')"></td>                  
+              </tr>
+              
+              <tr>
+                  <td><input type = "button" value = "1" class = "but" onclick="disp('1')"></td>
+                  <td><input type = "button" value = "2" class = "but" onclick="disp('2')"></td>
+                  <td><input type = "button" value = "3" class = "but" onclick="disp('3')"></td>
+                  <td rowspan ="2"><input type = "button" value = "=" class = "butt" onclick="solve()"></td>                 
+              </tr>
+              
+              <tr>
+                  <td colspan="2"><input type = "button" value = "0" class = "b" onclick="disp('0')"></td>
+                  <td><input type = "button" value = "." class = "but" onclick="disp('.')"></td>                  
+              </tr> 
+          </table>
+        </div>
+        
+        <script>
+                function disp(val)
+            {
+                document.getElementById('result').value += val;
+            }
+            
+              function solve()
+            {
+                var x = document.getElementById('result').value;
+                document.getElementById('result').value = eval(x);
+                
+            }
+            
+            function clr()
+            {
+                document.getElementById('result').value = " ";
+            }
+            
+            function back()
+            {
+                var exp = document.getElementById('result').value;
+                document.getElementById('result').value = exp.substring(0,exp.length-1);
+            }
+        </script>
+    </body>
+</html>
